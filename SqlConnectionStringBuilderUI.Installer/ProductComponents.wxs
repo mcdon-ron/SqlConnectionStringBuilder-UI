@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLFOLDER">
+            <Component Id="SqlConnectionStringBuilderUI.deps.json" Guid="*">
+                <File Id="SqlConnectionStringBuilderUI.deps.json" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\SqlConnectionStringBuilderUI.deps.json" />
+            </Component>
+            <Component Id="SqlConnectionStringBuilderUI.dll" Guid="*">
+                <File Id="SqlConnectionStringBuilderUI.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\SqlConnectionStringBuilderUI.dll" />
+            </Component>
+            <Component Id="SqlConnectionStringBuilderUI.exe" Guid="*">
+                <File Id="SqlConnectionStringBuilderUI.exe" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\SqlConnectionStringBuilderUI.exe">
+                    <Shortcut Id="exeShortcut" Directory="ProgramMenuFolder" Name="SqlConnectionStringBuilder UI" WorkingDirectory="INSTALLDIR" Advertise="yes" />
+                </File>
+            </Component>
+            <Component Id="SqlConnectionStringBuilderUI.runtimeconfig.json" Guid="*">
+                <File Id="SqlConnectionStringBuilderUI.runtimeconfig.json" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\SqlConnectionStringBuilderUI.runtimeconfig.json" />
+            </Component>
+            <Component Id="System.Data.SqlClient.dll" Guid="*">
+                <File Id="System.Data.SqlClient.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\System.Data.SqlClient.dll" />
+            </Component>
+            <Directory Id="runtimes" Name="runtimes">
+                <Directory Id="unix" Name="unix">
+                    <Directory Id="lib" Name="lib">
+                        <Directory Id="netcoreapp2.1" Name="netcoreapp2.1">
+                            <Component Id="System.Data.SqlClient.dll_1" Guid="*">
+                                <File Id="System.Data.SqlClient.dll_1" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll" />
+                            </Component>
+                        </Directory>
+                    </Directory>
+                </Directory>
+                <Directory Id="win" Name="win">
+                    <Directory Id="lib_1" Name="lib">
+                        <Directory Id="netcoreapp2.1_1" Name="netcoreapp2.1">
+                            <Component Id="System.Data.SqlClient.dll_2" Guid="*">
+                                <File Id="System.Data.SqlClient.dll_2" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll" />
+                            </Component>
+                        </Directory>
+                    </Directory>
+                </Directory>
+                <Directory Id="win_arm64" Name="win-arm64">
+                    <Directory Id="native" Name="native">
+                        <Component Id="sni.dll" Guid="*">
+                            <File Id="sni.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win-arm64\native\sni.dll" />
+                        </Component>
+                    </Directory>
+                </Directory>
+                <Directory Id="win_x64" Name="win-x64">
+                    <Directory Id="native_1" Name="native">
+                        <Component Id="sni.dll_1" Guid="*">
+                            <File Id="sni.dll_1" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win-x64\native\sni.dll" />
+                        </Component>
+                    </Directory>
+                </Directory>
+                <Directory Id="win_x86" Name="win-x86">
+                    <Directory Id="native_2" Name="native">
+                        <Component Id="sni.dll_2" Guid="*">
+                            <File Id="sni.dll_2" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win-x86\native\sni.dll" />
+                        </Component>
+                    </Directory>
+                </Directory>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ProductComponents">
+            <ComponentRef Id="SqlConnectionStringBuilderUI.deps.json" />
+            <ComponentRef Id="SqlConnectionStringBuilderUI.dll" />
+            <ComponentRef Id="SqlConnectionStringBuilderUI.exe" />
+            <ComponentRef Id="SqlConnectionStringBuilderUI.runtimeconfig.json" />
+            <ComponentRef Id="System.Data.SqlClient.dll" />
+            <ComponentRef Id="System.Data.SqlClient.dll_1" />
+            <ComponentRef Id="System.Data.SqlClient.dll_2" />
+            <ComponentRef Id="sni.dll" />
+            <ComponentRef Id="sni.dll_1" />
+            <ComponentRef Id="sni.dll_2" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

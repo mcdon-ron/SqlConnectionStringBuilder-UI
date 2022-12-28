@@ -1,0 +1,6 @@
+/SqlConnectionStringBuilderUI/bin
+/SqlConnectionStringBuilderUI/obj
+/SqlConnectionStringBuilderUI.Installer/bin
+/SqlConnectionStringBuilderUI.Installer/obj
+*.user
+/.vs
