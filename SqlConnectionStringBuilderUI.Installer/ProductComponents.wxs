@@ -2,6 +2,66 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <DirectoryRef Id="INSTALLFOLDER">
+            <Component Id="Azure.Core.dll" Guid="*">
+                <File Id="Azure.Core.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Azure.Core.dll" />
+            </Component>
+            <Component Id="Azure.Identity.dll" Guid="*">
+                <File Id="Azure.Identity.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Azure.Identity.dll" />
+            </Component>
+            <Component Id="Microsoft.Bcl.AsyncInterfaces.dll" Guid="*">
+                <File Id="Microsoft.Bcl.AsyncInterfaces.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.Bcl.AsyncInterfaces.dll" />
+            </Component>
+            <Component Id="Microsoft.Bcl.Cryptography.dll" Guid="*">
+                <File Id="Microsoft.Bcl.Cryptography.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.Bcl.Cryptography.dll" />
+            </Component>
+            <Component Id="Microsoft.Data.SqlClient.dll" Guid="*">
+                <File Id="Microsoft.Data.SqlClient.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.Data.SqlClient.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.Caching.Abstractions.dll" Guid="*">
+                <File Id="Microsoft.Extensions.Caching.Abstractions.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.Extensions.Caching.Abstractions.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.Caching.Memory.dll" Guid="*">
+                <File Id="Microsoft.Extensions.Caching.Memory.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.Extensions.Caching.Memory.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Guid="*">
+                <File Id="Microsoft.Extensions.DependencyInjection.Abstractions.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.Logging.Abstractions.dll" Guid="*">
+                <File Id="Microsoft.Extensions.Logging.Abstractions.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.Extensions.Logging.Abstractions.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.Options.dll" Guid="*">
+                <File Id="Microsoft.Extensions.Options.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.Extensions.Options.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.Primitives.dll" Guid="*">
+                <File Id="Microsoft.Extensions.Primitives.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.Extensions.Primitives.dll" />
+            </Component>
+            <Component Id="Microsoft.Identity.Client.dll" Guid="*">
+                <File Id="Microsoft.Identity.Client.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.Identity.Client.dll" />
+            </Component>
+            <Component Id="Microsoft.Identity.Client.Extensions.Msal.dll" Guid="*">
+                <File Id="Microsoft.Identity.Client.Extensions.Msal.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.Identity.Client.Extensions.Msal.dll" />
+            </Component>
+            <Component Id="Microsoft.IdentityModel.Abstractions.dll" Guid="*">
+                <File Id="Microsoft.IdentityModel.Abstractions.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.IdentityModel.Abstractions.dll" />
+            </Component>
+            <Component Id="Microsoft.IdentityModel.JsonWebTokens.dll" Guid="*">
+                <File Id="Microsoft.IdentityModel.JsonWebTokens.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.IdentityModel.JsonWebTokens.dll" />
+            </Component>
+            <Component Id="Microsoft.IdentityModel.Logging.dll" Guid="*">
+                <File Id="Microsoft.IdentityModel.Logging.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.IdentityModel.Logging.dll" />
+            </Component>
+            <Component Id="Microsoft.IdentityModel.Protocols.dll" Guid="*">
+                <File Id="Microsoft.IdentityModel.Protocols.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.IdentityModel.Protocols.dll" />
+            </Component>
+            <Component Id="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" Guid="*">
+                <File Id="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" />
+            </Component>
+            <Component Id="Microsoft.IdentityModel.Tokens.dll" Guid="*">
+                <File Id="Microsoft.IdentityModel.Tokens.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.IdentityModel.Tokens.dll" />
+            </Component>
+            <Component Id="Microsoft.SqlServer.Server.dll" Guid="*">
+                <File Id="Microsoft.SqlServer.Server.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\Microsoft.SqlServer.Server.dll" />
+            </Component>
             <Component Id="SqlConnectionStringBuilderUI.deps.json" Guid="*">
                 <File Id="SqlConnectionStringBuilderUI.deps.json" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\SqlConnectionStringBuilderUI.deps.json" />
             </Component>
@@ -10,70 +70,200 @@
             </Component>
             <Component Id="SqlConnectionStringBuilderUI.exe" Guid="*">
                 <File Id="SqlConnectionStringBuilderUI.exe" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\SqlConnectionStringBuilderUI.exe">
-                    <Shortcut Id="exeShortcut" Directory="ProgramMenuFolder" Name="SqlConnectionStringBuilder UI" WorkingDirectory="INSTALLDIR" Advertise="yes" />
+                  <Shortcut Id="exeShortcut" Directory="ProgramMenuFolder" Name="SqlConnectionStringBuilder UI" WorkingDirectory="INSTALLDIR" Advertise="yes" />
                 </File>
+            </Component>
+            <Component Id="SqlConnectionStringBuilderUI.pdb" Guid="*">
+                <File Id="SqlConnectionStringBuilderUI.pdb" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\SqlConnectionStringBuilderUI.pdb" />
             </Component>
             <Component Id="SqlConnectionStringBuilderUI.runtimeconfig.json" Guid="*">
                 <File Id="SqlConnectionStringBuilderUI.runtimeconfig.json" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\SqlConnectionStringBuilderUI.runtimeconfig.json" />
             </Component>
-            <Component Id="System.Data.SqlClient.dll" Guid="*">
-                <File Id="System.Data.SqlClient.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\System.Data.SqlClient.dll" />
+            <Component Id="System.ClientModel.dll" Guid="*">
+                <File Id="System.ClientModel.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\System.ClientModel.dll" />
             </Component>
+            <Component Id="System.Configuration.ConfigurationManager.dll" Guid="*">
+                <File Id="System.Configuration.ConfigurationManager.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\System.Configuration.ConfigurationManager.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.EventLog.dll" Guid="*">
+                <File Id="System.Diagnostics.EventLog.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\System.Diagnostics.EventLog.dll" />
+            </Component>
+            <Component Id="System.IdentityModel.Tokens.Jwt.dll" Guid="*">
+                <File Id="System.IdentityModel.Tokens.Jwt.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\System.IdentityModel.Tokens.Jwt.dll" />
+            </Component>
+            <Component Id="System.Memory.Data.dll" Guid="*">
+                <File Id="System.Memory.Data.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\System.Memory.Data.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Pkcs.dll" Guid="*">
+                <File Id="System.Security.Cryptography.Pkcs.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\System.Security.Cryptography.Pkcs.dll" />
+            </Component>
+            <Directory Id="cs" Name="cs">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\cs\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="de" Name="de">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll_1" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll_1" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\de\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="es" Name="es">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll_2" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll_2" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\es\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="fr" Name="fr">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll_3" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll_3" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\fr\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="it" Name="it">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll_4" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll_4" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\it\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="ja" Name="ja">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll_5" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll_5" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\ja\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="ko" Name="ko">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll_6" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll_6" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\ko\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="pl" Name="pl">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll_7" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll_7" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\pl\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="pt_BR" Name="pt-BR">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll_8" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll_8" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\pt-BR\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="ru" Name="ru">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll_9" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll_9" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\ru\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
+            </Directory>
             <Directory Id="runtimes" Name="runtimes">
                 <Directory Id="unix" Name="unix">
                     <Directory Id="lib" Name="lib">
-                        <Directory Id="netcoreapp2.1" Name="netcoreapp2.1">
-                            <Component Id="System.Data.SqlClient.dll_1" Guid="*">
-                                <File Id="System.Data.SqlClient.dll_1" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll" />
+                        <Directory Id="net8.0" Name="net8.0">
+                            <Component Id="Microsoft.Data.SqlClient.dll_1" Guid="*">
+                                <File Id="Microsoft.Data.SqlClient.dll_1" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll" />
                             </Component>
                         </Directory>
                     </Directory>
                 </Directory>
                 <Directory Id="win" Name="win">
                     <Directory Id="lib_1" Name="lib">
-                        <Directory Id="netcoreapp2.1_1" Name="netcoreapp2.1">
-                            <Component Id="System.Data.SqlClient.dll_2" Guid="*">
-                                <File Id="System.Data.SqlClient.dll_2" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll" />
+                        <Directory Id="net8.0_1" Name="net8.0">
+                            <Component Id="Microsoft.Data.SqlClient.dll_2" Guid="*">
+                                <File Id="Microsoft.Data.SqlClient.dll_2" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll" />
+                            </Component>
+                            <Component Id="System.Diagnostics.EventLog.dll_1" Guid="*">
+                                <File Id="System.Diagnostics.EventLog.dll_1" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll" />
+                            </Component>
+                            <Component Id="System.Security.Cryptography.Pkcs.dll_1" Guid="*">
+                                <File Id="System.Security.Cryptography.Pkcs.dll_1" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll" />
                             </Component>
                         </Directory>
                     </Directory>
                 </Directory>
                 <Directory Id="win_arm64" Name="win-arm64">
                     <Directory Id="native" Name="native">
-                        <Component Id="sni.dll" Guid="*">
-                            <File Id="sni.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win-arm64\native\sni.dll" />
+                        <Component Id="Microsoft.Data.SqlClient.SNI.dll" Guid="*">
+                            <File Id="Microsoft.Data.SqlClient.SNI.dll" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll" />
                         </Component>
                     </Directory>
                 </Directory>
                 <Directory Id="win_x64" Name="win-x64">
                     <Directory Id="native_1" Name="native">
-                        <Component Id="sni.dll_1" Guid="*">
-                            <File Id="sni.dll_1" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win-x64\native\sni.dll" />
+                        <Component Id="Microsoft.Data.SqlClient.SNI.dll_1" Guid="*">
+                            <File Id="Microsoft.Data.SqlClient.SNI.dll_1" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll" />
                         </Component>
                     </Directory>
                 </Directory>
                 <Directory Id="win_x86" Name="win-x86">
                     <Directory Id="native_2" Name="native">
-                        <Component Id="sni.dll_2" Guid="*">
-                            <File Id="sni.dll_2" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win-x86\native\sni.dll" />
+                        <Component Id="Microsoft.Data.SqlClient.SNI.dll_2" Guid="*">
+                            <File Id="Microsoft.Data.SqlClient.SNI.dll_2" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll" />
                         </Component>
                     </Directory>
                 </Directory>
+            </Directory>
+            <Directory Id="tr" Name="tr">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll_10" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll_10" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\tr\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="zh_Hans" Name="zh-Hans">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll_11" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll_11" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\zh-Hans\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="zh_Hant" Name="zh-Hant">
+                <Component Id="Microsoft.Data.SqlClient.resources.dll_12" Guid="*">
+                    <File Id="Microsoft.Data.SqlClient.resources.dll_12" KeyPath="yes" Source="$(var.SqlConnectionStringBuilderUI.TargetDir)\zh-Hant\Microsoft.Data.SqlClient.resources.dll" />
+                </Component>
             </Directory>
         </DirectoryRef>
     </Fragment>
     <Fragment>
         <ComponentGroup Id="ProductComponents">
+            <ComponentRef Id="Azure.Core.dll" />
+            <ComponentRef Id="Azure.Identity.dll" />
+            <ComponentRef Id="Microsoft.Bcl.AsyncInterfaces.dll" />
+            <ComponentRef Id="Microsoft.Bcl.Cryptography.dll" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.dll" />
+            <ComponentRef Id="Microsoft.Extensions.Caching.Abstractions.dll" />
+            <ComponentRef Id="Microsoft.Extensions.Caching.Memory.dll" />
+            <ComponentRef Id="Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+            <ComponentRef Id="Microsoft.Extensions.Logging.Abstractions.dll" />
+            <ComponentRef Id="Microsoft.Extensions.Options.dll" />
+            <ComponentRef Id="Microsoft.Extensions.Primitives.dll" />
+            <ComponentRef Id="Microsoft.Identity.Client.dll" />
+            <ComponentRef Id="Microsoft.Identity.Client.Extensions.Msal.dll" />
+            <ComponentRef Id="Microsoft.IdentityModel.Abstractions.dll" />
+            <ComponentRef Id="Microsoft.IdentityModel.JsonWebTokens.dll" />
+            <ComponentRef Id="Microsoft.IdentityModel.Logging.dll" />
+            <ComponentRef Id="Microsoft.IdentityModel.Protocols.dll" />
+            <ComponentRef Id="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" />
+            <ComponentRef Id="Microsoft.IdentityModel.Tokens.dll" />
+            <ComponentRef Id="Microsoft.SqlServer.Server.dll" />
             <ComponentRef Id="SqlConnectionStringBuilderUI.deps.json" />
             <ComponentRef Id="SqlConnectionStringBuilderUI.dll" />
             <ComponentRef Id="SqlConnectionStringBuilderUI.exe" />
+            <ComponentRef Id="SqlConnectionStringBuilderUI.pdb" />
             <ComponentRef Id="SqlConnectionStringBuilderUI.runtimeconfig.json" />
-            <ComponentRef Id="System.Data.SqlClient.dll" />
-            <ComponentRef Id="System.Data.SqlClient.dll_1" />
-            <ComponentRef Id="System.Data.SqlClient.dll_2" />
-            <ComponentRef Id="sni.dll" />
-            <ComponentRef Id="sni.dll_1" />
-            <ComponentRef Id="sni.dll_2" />
+            <ComponentRef Id="System.ClientModel.dll" />
+            <ComponentRef Id="System.Configuration.ConfigurationManager.dll" />
+            <ComponentRef Id="System.Diagnostics.EventLog.dll" />
+            <ComponentRef Id="System.IdentityModel.Tokens.Jwt.dll" />
+            <ComponentRef Id="System.Memory.Data.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Pkcs.dll" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll_1" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll_2" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll_3" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll_4" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll_5" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll_6" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll_7" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll_8" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll_9" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.dll_1" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.dll_2" />
+            <ComponentRef Id="System.Diagnostics.EventLog.dll_1" />
+            <ComponentRef Id="System.Security.Cryptography.Pkcs.dll_1" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.SNI.dll" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.SNI.dll_1" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.SNI.dll_2" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll_10" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll_11" />
+            <ComponentRef Id="Microsoft.Data.SqlClient.resources.dll_12" />
         </ComponentGroup>
     </Fragment>
 </Wix>

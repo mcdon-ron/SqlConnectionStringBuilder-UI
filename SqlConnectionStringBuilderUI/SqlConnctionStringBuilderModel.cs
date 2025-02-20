@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.ComponentModel;
 using System.Data.Common;
-using System.Data.SqlClient;
 
 namespace SqlConnectionStringBuilderUI
 {
@@ -91,7 +91,7 @@ namespace SqlConnectionStringBuilderUI
             set
             {
                 if (value == ApplicationIntent_default)
-                    builder.Remove("ApplicationIntent");
+                    builder.Remove("Application Intent");
                 else
                     builder.ApplicationIntent = value;
             }
@@ -180,6 +180,16 @@ namespace SqlConnectionStringBuilderUI
             set { builder.ConnectionString = value; }
         }
 
+        [DisplayName("LegacyConnectionString")]
+        [Description("The current Connection String using legacy property names")]
+        [Category(CatBasic)]
+        [RefreshProperties(RefreshProperties.All)]
+        public string LegacyConnectionString
+        {
+            get { return LegacyCsUtil.ToLegacyConnectionString(builder.ConnectionString); }
+            set { builder.ConnectionString = LegacyCsUtil.FromLegacyConnectionString(value); }
+        }
+
         [DisplayName("ConnectionStringXML")]
         [Description("XML encoded Connection String")]
         [Category(CatBasic)]
@@ -188,6 +198,24 @@ namespace SqlConnectionStringBuilderUI
         {
             get { return XmlUtil.Escape(builder.ConnectionString); }
             set { builder.ConnectionString = XmlUtil.Unescape(value); }
+        }
+
+        [DisplayName("LegacyConnectionStringXML")]
+        [Description("XML encoded Legacy Connection String")]
+        [Category(CatBasic)]
+        [RefreshProperties(RefreshProperties.All)]
+        public string LegacyConnectionStringXML
+        {
+            get
+            {
+                var legacyCs = LegacyCsUtil.ToLegacyConnectionString(builder.ConnectionString);
+                return XmlUtil.Escape(legacyCs);
+            }
+            set
+            {
+                var legacyCs = XmlUtil.Unescape(value);
+                builder.ConnectionString = LegacyCsUtil.FromLegacyConnectionString(legacyCs);
+            }
         }
 
         private const string ConnectRetryCount_desc =
@@ -216,7 +244,7 @@ namespace SqlConnectionStringBuilderUI
             set
             {
                 if (value == ConnectRetryCount_default)
-                    builder.Remove("ConnectRetryCount");
+                    builder.Remove("Connect Retry Count");
                 else
                     builder.ConnectRetryCount = value;
             }
@@ -249,7 +277,7 @@ namespace SqlConnectionStringBuilderUI
             set
             {
                 if (value == ConnectRetryInterval_default)
-                    builder.Remove("ConnectRetryInterval");
+                    builder.Remove("Connect Retry Interval");
                 else
                     builder.ConnectRetryInterval = value;
             }
@@ -648,7 +676,7 @@ namespace SqlConnectionStringBuilderUI
             set
             {
                 if (value == MultipleActiveResultSets_default)
-                    builder.Remove("MultipleActiveResultSets");
+                    builder.Remove("Multiple Active Result Sets");
                 else
                     builder.MultipleActiveResultSets = value;
             }
@@ -682,7 +710,7 @@ namespace SqlConnectionStringBuilderUI
             set
             {
                 if (value == MultiSubnetFailover_default)
-                    builder.Remove("MultiSubnetFailover");
+                    builder.Remove("Multi Subnet Failover");
                 else
                     builder.MultiSubnetFailover = value;
             }
@@ -801,7 +829,7 @@ namespace SqlConnectionStringBuilderUI
             set
             {
                 if (value == PoolBlockingPeriod_default)
-                    builder.Remove("PoolBlockingPeriod");
+                    builder.Remove("Pool Blocking Period");
                 else
                     builder.PoolBlockingPeriod = value;
             }
@@ -922,7 +950,7 @@ namespace SqlConnectionStringBuilderUI
             set
             {
                 if (value == TrustServerCertificate_default)
-                    builder.Remove("TrustServerCertificate");
+                    builder.Remove("Trust Server Certificate");
                 else
                     builder.TrustServerCertificate = value;
             }
