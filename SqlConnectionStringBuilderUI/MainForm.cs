@@ -1,5 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SqlConnectionStringBuilderUI

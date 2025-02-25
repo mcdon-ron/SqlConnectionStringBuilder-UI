@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Name="SqlConnectionStringBuilder UI" Manufacturer="mcdon-ron"
+	<Product Name="SqlConnectionStringBuilder UI" Manufacturer="mcdon-ron"
            Version="!(bind.fileVersion.SqlConnectionStringBuilderUI.exe)"
            Id="*" UpgradeCode="beb4afa6-753f-4f65-a186-3b4d3db5ea2b" Language="1033">
 
-    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
-    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes" CompressionLevel="high" />
 
-    <Feature Id="ProductFeature" Title="SqlConnectionStringBuilder UI" Level="1">
-      <ComponentGroupRef Id="ProductComponents" />
+		<Feature Id="ProductFeature" Title="SqlConnectionStringBuilder UI" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
       <ComponentGroupRef Id="DocumentationComponents" />
-    </Feature>
+		</Feature>
 
     <Property Id="ARPCOMMENTS" Value="A user interface around DotNet's SqlConnectionStringBuilder." />
     <SetProperty Id="ARPINSTALLLOCATION" Value="[INSTALLFOLDER]" After="CostFinalize" />
@@ -23,7 +23,7 @@
 
     <UIRef Id="WixUI_Minimal" />
     <WixVariable Id="WixUILicenseRtf" Value="..\install-license.rtf" />
-  </Product>
+	</Product>
 
   <Fragment>
     <ComponentGroup Id="DocumentationComponents">
@@ -39,14 +39,14 @@
     </ComponentGroup>
   </Fragment>
 
-  <Fragment>
-    <Directory Id="TARGETDIR" Name="SourceDir">
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramMenuFolder" />
-      <Directory Id="ProgramFilesFolder">
+			<Directory Id="ProgramFilesFolder">
         <Directory Id="INSTALLFOLDER" Name="SqlConnectionStringBuilder UI">
           <Directory Id="screenshots" Name="screenshots"/>
         </Directory>
-      </Directory>
-    </Directory>
-  </Fragment>
+			</Directory>
+		</Directory>
+	</Fragment>
 </Wix>
